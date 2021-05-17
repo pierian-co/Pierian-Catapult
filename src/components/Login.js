@@ -48,7 +48,7 @@ export const Login = () => {
 
     return(
             <>
-                <div className="container back_img" style={{marginTop:'65px'}}>
+                <div className="container back_img">
                     <div className="card card-container">
                         <h5>Login to your account  </h5>
                        

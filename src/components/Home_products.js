@@ -1,6 +1,8 @@
 import React from 'react'
 import { MediaCard } from './ListCard'
 
+import products from '../data/productData'
+
 
 export const HomeProducts = () => {
 
@@ -26,7 +28,7 @@ export const HomeProducts = () => {
         <div className="container">
 
             <div className="jumbotron row">
-                <div className="pb-5 pt-4">
+                <div className="pb-5">
                     <img style={bannerImageStyle} src="./assets/img/food_banner.jpg" alt="banner" />
 
                 </div>
@@ -37,37 +39,14 @@ export const HomeProducts = () => {
 
                 <h3 style={productTitleStyle}>Latest Products</h3>
 
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-1.jpg"} title={"INDIAN"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
+
+                {products.map(item =>
+                    <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
+                        <MediaCard key={item.id} product={item} />
+                    </div>
+                )}
 
 
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-2.jpg"} title={"CHINESE"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
-
-
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-3.jpg"} title={"CONTINENTAL"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
-
-
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-1.jpg"} title={"JAPANESE"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
-
-
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-2.jpg"} title={"INDIAN"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
-
-
-                <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-3.jpg"} title={"CHINESE"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa."} />
-                </div>
-
-
-                {/* </div> */}
 
             </div>
 

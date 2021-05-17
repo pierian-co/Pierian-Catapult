@@ -1,16 +1,11 @@
 import React from 'react';
-
-import { Link } from "react-router-dom";
-
-
+import { Link, useLocation } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-// import Button from '@material-ui/core/Button';
-// import MenuIcon from '@material-ui/icons/Menu';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,32 +21,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// color: white;
-// text-decoration: auto;
 let linkStyle = {
   color: "white",
   textDecoration: "auto"
 }
 
+let paddingBottom = {
+  paddingBottom : "4rem"
+}
 
 
 export const Header = () => {
   const classes = useStyles();
 
+
+  let location = useLocation();
+
+
+
   return (
-    <div className={classes.root}>
+    <div style={paddingBottom}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            {/* <MenuIcon /> */}
-            {/* Pierian */}
             <Link to="/" style={ linkStyle} > Pierian </Link>
 
           </IconButton>
           <Typography variant="h6" className={classes.title}>
           </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-          <Link to="/login" style={ linkStyle}> Login </Link>
+          { ( location.pathname.toLocaleLowerCase() === "/account/thanks" ||  location.pathname.toLocaleLowerCase() === "/account") ? "":  <Link to="/login" style={ linkStyle}> Login </Link>  }
+          
         </Toolbar>
       </AppBar>
     </div>

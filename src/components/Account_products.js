@@ -2,9 +2,11 @@ import React from 'react'
 
 import { MediaCard } from './ListCard'
 
+import products from '../data/productData'
+
+
 
 export const AccountProducts = () => {
-
 
     let bannerImageStyle = {
         height: "100%",
@@ -27,7 +29,7 @@ export const AccountProducts = () => {
         <div className="container">
 
             <div className="jumbotron row">
-                    <div className="pb-5 pt-4">
+                    <div className="pb-5">
                         <img style={ bannerImageStyle } src="./assets/img/food_banner.jpg" alt="banner" />
 
                     </div>
@@ -39,35 +41,13 @@ export const AccountProducts = () => {
 
                 <h3 style={productTitleStyle}>Latest Products</h3>
 
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-1.jpg"} title={"INDIAN"}  />
-                </div>
+                
 
-
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-2.jpg"} title={"CONTINENTAL"}  />
-                </div>
-
-
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-3.jpg"} title={"PUNJABI"}  />
-                </div>
-
-
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-1.jpg"} title={"JAPANESE"}  />
-                </div>
-
-
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-2.jpg"} title={"CHINESE"}  />
-                </div>
-
-
-                <div className="col-md-6 col-lg-3 col-xs-12 pb-5">
-                    <MediaCard imagePath={"./assets/img/gallery/img-3.jpg"} title={"AFRICAN"}  />
-                </div>
-
+                {products.map(item =>
+                    <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
+                        <MediaCard key={item.id} product={item} isAccount={true}  />
+                    </div>
+                )}
 
 
             </div>

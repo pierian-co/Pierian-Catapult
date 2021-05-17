@@ -19,7 +19,7 @@ export const Footer = () => {
     }
 
     return (
-        <div className="jumbotron" style={footerStyle}>
+        <div className="jumbotron mt-5" style={footerStyle}>
             <p style={footerTextStyle}>
                 Transactions on this site are not real.<br />
                Forked from <a href="http://localhost:3000/">GitHub</a><br />

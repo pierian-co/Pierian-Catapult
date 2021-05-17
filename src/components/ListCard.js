@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -18,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const MediaCard = ({ title, description, imagePath }) => {
+export const MediaCard = (props) => {
   const classes = useStyles();
 
   let cardTitleStyle = {
@@ -28,39 +31,72 @@ export const MediaCard = ({ title, description, imagePath }) => {
     color: "#666"
   }
 
+
+  let linkStyle = {
+    textDecoration: "none",
+    color: "white",
+  }
+
+
+
   return (
 
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          title={title}
-          image={imagePath}
+          title={props.product.cuisine}
+          image={props.product.thumbNailUrl}
 
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" style={cardTitleStyle} >
-            {title}
+            {props.product.cuisine}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" style={{ textAlign: "center" }} >
-            {description}
+
+            {props.isAccount ? "" : props.product.title}
+
           </Typography>
         </CardContent>
       </CardActionArea>
 
       <CardActions>
         <div className="row col-12">
+
           <div className="col-6">
-            <Button size="small" color="primary">
+
+            {props.isAccount ? "" : <Button size="small" color="primary"> {props.product.price} </Button>}
+
+
+            {/* <Button size="small" color="primary">
               $250
-              {/* <span className="badge badge-secondary">Secondary</span> */}
-            </Button>
-            
+               <span className="badge badge-secondary">Secondary</span>
+            </Button> */}
+
+
           </div>
 
-          <div className="col-6" style={{textAlign: "end"}}>
-          <button className="btn btn-sm btn-danger" >Learn More</button>
-          </div>
+          { props.isAccount ?
+
+            <div  style={{ textAlign: "center" }}>
+              <button className="btn  btn-warning" >
+                {/* Add To Fav */}
+                <Link to={{ pathname: `/account/thanks`,  search: props.product.cuisine }}  style={linkStyle}> Add To Favourite </Link>
+              </button>
+            </div> 
+            
+            :
+
+            <div className="col-6" style={{ textAlign: "end" }}>
+              <button className="btn btn-sm btn-danger" >
+                <Link to={{ pathname: `/product/${props.product.cuisine}` }} style={linkStyle}> Learn More </Link>
+              </button>
+            </div>
+
+          }
+
+
         </div>
 
       </CardActions>
