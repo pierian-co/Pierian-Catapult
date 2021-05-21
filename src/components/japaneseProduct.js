@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 
 import products from '../data/productData'
 import japanese from '../img/gallery/japanese2.jpg'
@@ -8,6 +9,14 @@ import japanese from '../img/gallery/japanese2.jpg'
 export const JapaneseProduct = () => {
 
     const japaneseCuisine = products.find( product =>   product.cuisine === "JAPANESE")
+
+    
+    let histroy = useHistory();
+    const onClick = () => {
+        localStorage.setItem("cartProduct", JSON.stringify(japaneseCuisine));
+        histroy.push("/basket")
+
+    }
 
 
 
@@ -32,7 +41,7 @@ export const JapaneseProduct = () => {
                     <h5> { japaneseCuisine.title } </h5>
                     <p> { japaneseCuisine.description } </p>
                         </div>
-                        <button className="btn btn-sm btn-warning" >
+                        <button className="btn btn-sm btn-warning"  onClick={() => onClick()} >
                             Add To Cart
                         </button>
                     </div>

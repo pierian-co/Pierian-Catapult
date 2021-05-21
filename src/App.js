@@ -14,9 +14,13 @@ import { IndianProduct } from "./components/indianProduct";
 import { JapaneseProduct } from "./components/japaneseProduct";
 import { KoreanProduct } from "./components/koreanProduct";
 import { VietnamProduct } from "./components/vietnamProduct";
+import { Checkout } from "./components/Checkout";
+import { PersonalDetail } from "./components/PersonalDetail";
+import { CardDetail } from "./components/CardDetail";
+import { CheckoutThanks } from "./components/CheckoutThank";
 
 import { Thanks } from "./components/thanks";
-
+import { Basket } from './components/Basket'
 import { ProductDescription } from './components/Product_Description'
 
 function App() {
@@ -35,7 +39,7 @@ function App() {
             <AccountProducts />
           </Route>
 
-          
+
           <Route exact path="/product" >
             <ProductDescription />
           </Route>
@@ -45,27 +49,27 @@ function App() {
             <CaribbeanProduct />
           </Route>
 
-          
+
           <Route exact path="/product/GERMAN" >
             <GermanProduct />
           </Route>
 
-          
+
           <Route exact path="/product/INDIAN" >
             <IndianProduct />
           </Route>
 
-          
+
           <Route exact path="/product/JAPANESE" >
             <JapaneseProduct />
           </Route>
 
-          
+
           <Route exact path="/product/KOREAN" >
             <KoreanProduct />
           </Route>
 
-          
+
           <Route exact path="/product/VIETNAMESE" >
             <VietnamProduct />
           </Route>
@@ -74,7 +78,30 @@ function App() {
             <Thanks />
           </Route>
 
+          <Route exact path="/basket">
+            <Basket />
+          </Route>
+
+          <Route exact path="/checkout">
+            <Checkout />
+          </Route>
+
           
+          <Route exact path="/personalDetail">
+            <PersonalDetail />
+          </Route>
+
+          
+          <Route exact path="/cardDetail">
+            <CardDetail />
+          </Route>
+
+          
+          <Route exact path="/checkoutThank">
+            <CheckoutThanks />
+          </Route>
+
+
         </Switch>
         <Footer />
       </Router>

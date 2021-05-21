@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
+
 
 import products from '../data/productData'
 import vietnam from '../img/gallery/vietnamese2.jpg'
@@ -8,6 +10,14 @@ import vietnam from '../img/gallery/vietnamese2.jpg'
 export const VietnamProduct = () => {
 
     const vietnamCuisine = products.find(product => product.cuisine === "VIETNAMESE")
+
+    
+    let histroy = useHistory();
+    const onClick = () => {
+        localStorage.setItem("cartProduct", JSON.stringify(vietnamCuisine));
+        histroy.push("/basket")
+
+    }
 
 
     let imageBoderStyle = {
@@ -33,7 +43,7 @@ export const VietnamProduct = () => {
                             <h5> {vietnamCuisine.title} </h5>
                             <p> {vietnamCuisine.description} </p>
                         </div>
-                        <button className="btn btn-sm btn-warning" >
+                        <button className="btn btn-sm btn-warning"  onClick={() => onClick()}  >
                             Add To Cart
                         </button>
                     </div>

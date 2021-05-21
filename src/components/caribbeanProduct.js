@@ -1,4 +1,6 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
+
 
 import products from '../data/productData'
 import caribbean from '../img/gallery/caribbean2.jpg'
@@ -6,7 +8,10 @@ import caribbean from '../img/gallery/caribbean2.jpg'
 
 
 export const CaribbeanProduct = () => {
+    let histroy = useHistory();
+
    
+    const caribbeanCuisine = products.find( product =>   product.cuisine === "CARIBBEAN")
 
 
     let imageBoderStyle = {
@@ -17,7 +22,12 @@ export const CaribbeanProduct = () => {
         height: "26rem",
     }
 
-    const caribbeanCuisine = products.find( product =>   product.cuisine === "CARIBBEAN")
+    const onClick = () => {
+        localStorage.setItem("cartProduct", JSON.stringify(caribbeanCuisine));
+        histroy.push("/basket")
+
+    }
+
 
     return (
 
@@ -32,7 +42,7 @@ export const CaribbeanProduct = () => {
                     <h5> { caribbeanCuisine.title } </h5>
                     <p> { caribbeanCuisine.description } </p>
                 </div>
-                <button className="btn btn-sm btn-warning" >
+                <button className="btn btn-sm btn-warning"  onClick={() => onClick()}  >
                     Add To Cart
                 </button>
             </div>
