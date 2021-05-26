@@ -15,7 +15,7 @@ export const Product = () => {
 
     console.log("location.search.substring(1)",  location.search.substring(1));
 
-    const productData = products.find(product => product.cuisine === location.search.substring(1))
+    const productData = products.find(product => product.name === location.search.substring(1))
 
 
     let imageBoderStyle = {
@@ -44,7 +44,7 @@ export const Product = () => {
                     </div>
                     <div className="col">
                         <div className="">
-                            <h3>{productData.cuisine}</h3>
+                            <h3>{productData.name}</h3>
                             <h5> {productData.title} </h5>
                             <p> {productData.description} </p>
                         </div>

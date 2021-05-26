@@ -1,7 +1,7 @@
 const Products = [
     {
         id: 1,
-        cuisine : 'INDIAN',
+        name : 'INDIAN',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/indian.jpg',
@@ -10,7 +10,7 @@ const Products = [
     },
     {
         id: 2,
-        cuisine : 'CARIBBEAN',
+        name : 'CARIBBEAN',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/caribbean.jpg',
@@ -19,7 +19,7 @@ const Products = [
     },
     {
         id: 3,
-        cuisine : 'VIETNAMESE',
+        name : 'VIETNAMESE',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/vietnamese.jpg',
@@ -28,7 +28,7 @@ const Products = [
     },
     {
         id: 4,
-        cuisine : 'KOREAN',
+        name : 'KOREAN',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/korean.jpg',
@@ -37,7 +37,7 @@ const Products = [
     },
     {
         id: 5,
-        cuisine : 'GERMAN',
+        name : 'GERMAN',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/german.jpg',
@@ -46,7 +46,7 @@ const Products = [
     },
     {
         id: 6,
-        cuisine : 'JAPANESE',
+        name : 'JAPANESE',
         title : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/japanese.jpg',

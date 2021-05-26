@@ -45,13 +45,13 @@ export const MediaCard = (props) => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          title={props.product.cuisine}
+          title={props.product.name}
           image={props.product.thumbNailUrl}
 
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" style={cardTitleStyle} >
-            {props.product.cuisine}
+            {props.product.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" style={{ textAlign: "center" }} >
 
@@ -82,7 +82,7 @@ export const MediaCard = (props) => {
             <div  style={{ textAlign: "center" }}>
               <button className="btn  btn-signin" >
                 {/* Add To Fav */}
-                <Link to={{ pathname: `/account/thanks`,  search: props.product.cuisine }}  style={linkStyle}> Add To Favourite </Link>
+                <Link to={{ pathname: `/account/thanks`,  search: props.product.name }}  style={linkStyle}> Add To Favourite </Link>
               </button>
             </div> 
             
@@ -90,8 +90,8 @@ export const MediaCard = (props) => {
 
             <div className="col-6" style={{ textAlign: "end" }}>
               <button className="btn btn-sm btn-signin" >
-                {/* <Link to={{ pathname: `/product/${props.product.cuisine}` }} style={linkStyle}> Learn More </Link> */}
-                <Link to={{ pathname: `/productdetail`,   search: props.product.cuisine }} style={linkStyle}> Learn More </Link>
+                {/* <Link to={{ pathname: `/product/${props.product.name}` }} style={linkStyle}> Learn More </Link> */}
+                <Link to={{ pathname: `/productdetail`,   search: props.product.name }} style={linkStyle}> Learn More </Link>
               </button>
             </div>
 

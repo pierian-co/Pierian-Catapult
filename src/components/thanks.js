@@ -35,7 +35,7 @@ export const Thanks = () => {
         </div>
         <div className="row justify-content-md-center" >
           <div className="col col-md-auto" style={textStyle}>
-            YOU HAVE CHANGED YOUR FAVOURITE CUISINE TO......     {location.search.substring(1)}
+            YOU HAVE CHANGED YOUR FAVOURITE name TO......     {location.search.substring(1)}
           </div>
         </div>
       </div>

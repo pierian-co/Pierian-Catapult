@@ -45,10 +45,10 @@ export const Basket = () => {
         <>
 
             <div className="card" style={{ width: "18rem" }} >
-                <img className="card-img-top" src={cartProduct.thumbNailUrl} alt={cartProduct.cuisine} />
+                <img className="card-img-top" src={cartProduct.thumbNailUrl} alt={cartProduct.name} />
                 <div className="card-body">
                     <div className="row">
-                        <p className="card-text" style={{ textAligment: "center" }}  > {cartProduct.cuisine} </p>
+                        <p className="card-text" style={{ textAligment: "center" }}  > {cartProduct.name} </p>
                         <p>  {cartProduct.price}  </p>
                         
                         <div id="checkout" className="checkbox pb-2">
