@@ -41,8 +41,8 @@ export const HomeProducts = () => {
 
 
                 {products.map(item =>
-                    <div className="col-md-6 col-lg-4 col-xs-12 pb-5">
-                        <MediaCard key={item.id} product={item} />
+                    <div key={item.id}  className="col-md-6 col-lg-4 col-xs-12 pb-5">
+                        <MediaCard product={item} />
                     </div>
                 )}
 
