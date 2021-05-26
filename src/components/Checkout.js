@@ -32,7 +32,7 @@ export const Checkout = () => {
 
                 </form>
 
-                <button className="btn btn-sm btn-danger" >
+                <button className="btn btn-sm btn-signin" >
                     <Link to={{ pathname: `/checkoutThank` }} style={linkStyle}> submit </Link>
                 </button>
             </div>

@@ -1,0 +1,62 @@
+import React from 'react'
+import { useHistory, useLocation } from "react-router-dom";
+
+
+
+
+import products from '../data/productData'
+
+
+
+
+export const Product = () => {
+    let location = useLocation();
+    let histroy = useHistory();
+
+    console.log("location.search.substring(1)",  location.search.substring(1));
+
+    const productData = products.find(product => product.cuisine === location.search.substring(1))
+
+
+    let imageBoderStyle = {
+        border: "5px solid #ddd",
+        borderRadius: "10px",
+        padding: "5px",
+        width: "100%",
+        height: "26rem",
+    }
+
+    const onClick = () => {
+        localStorage.setItem("cartProduct", JSON.stringify(productData));
+        histroy.push("/basket")
+
+    }
+
+
+
+    return (
+
+        <>
+            <div className="container">
+                <div className="jumbotron row">
+                    <div className="col">
+                        <img style={imageBoderStyle} src={productData.imageUrl} alt="indian" />
+                    </div>
+                    <div className="col">
+                        <div className="">
+                            <h3>{productData.cuisine}</h3>
+                            <h5> {productData.title} </h5>
+                            <p> {productData.description} </p>
+                        </div>
+                        <button className="btn btn-sm btn-signin" onClick={() => onClick()} >
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </>
+    )
+}

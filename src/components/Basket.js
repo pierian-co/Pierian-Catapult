@@ -57,7 +57,7 @@ export const Basket = () => {
                                 </label>
                             </div>
 
-                        <button className="btn btn-sm btn-danger" onClick = {() => checkout()} > Checkout </button>
+                        <button className="btn btn-sm btn-signin" onClick = {() => checkout()} > Checkout </button>
 
                     </div>
                 </div>
