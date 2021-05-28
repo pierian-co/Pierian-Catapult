@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,6 +25,9 @@ const useStyles = makeStyles({
 export const MediaCard = (props) => {
   const classes = useStyles();
 
+  let histroy = useHistory();
+
+
   let cardTitleStyle = {
     fontSize: "18px",
     textTransform: "uppercase",
@@ -36,6 +40,14 @@ export const MediaCard = (props) => {
     textDecoration: "none",
     color: "white",
   }
+
+
+  
+  const onClick = () => {
+    localStorage.setItem("accountCartData", JSON.stringify(props.product));
+    histroy.push("/account/thanks")
+
+}
 
 
 
@@ -74,15 +86,15 @@ export const MediaCard = (props) => {
                <span className="badge badge-secondary">Secondary</span>
             </Button> */}
 
-
+ 
           </div>
 
           { props.isAccount ?
 
             <div  style={{ textAlign: "center" }}>
-              <button className="btn  btn-signin" >
-                {/* Add To Fav */}
-                <Link to={{ pathname: `/account/thanks`,  search: props.product.name }}  style={linkStyle}> Add To Favourite </Link>
+              <button className="btn  btn-signin"  onClick={() => onClick()}  >
+                Add To Fav
+                {/* <Link to={{ pathname: `/account/thanks`,  search: props.product.name }}  style={linkStyle}> Add To Favourite </Link> */}
               </button>
             </div> 
             

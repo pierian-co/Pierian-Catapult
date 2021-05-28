@@ -15,6 +15,7 @@ export const Checkout = () => {
 
     return (
 
+        <div className="container back_img">
             <div className="card card-container">
                 <h5>Please submit your Details  </h5>
 
@@ -36,6 +37,7 @@ export const Checkout = () => {
                     <Link to={{ pathname: `/checkoutThank` }} style={linkStyle}> submit </Link>
                 </button>
             </div>
+        </div>
 
 
     )
