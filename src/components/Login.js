@@ -37,6 +37,21 @@ export const Login = () => {
         }
         else {
             if ( newUser[0].password ===  passwordValue) {
+                try{
+                    if(window.Visitor){ 
+                        window.Visitor.getInstance("14AF2CD35CD3D8060A495CDCAdobeOrg").setCustomerIDs({ 
+                            "userid":{ 
+                                "id":email_value, 
+                                "authState":window.Visitor.AuthState.AUTHENTICATED
+                            }
+                        }, "SHA-256"); 
+                    }
+                    
+                }
+                catch(e){
+                    console.log(e);
+                }
+
                 history.push('/account')
             }
             else {
