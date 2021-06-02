@@ -17,6 +17,14 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
 
+    targetView('ProductDetails-' + location.search.substring(1));
+    function targetView(viewName) {
+        // Validate if the Target Libraries are available on your website
+        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+          window.adobe.target.triggerView(viewName);
+        }
+      }
+    
 
     let imageBoderStyle = {
         border: "5px solid #ddd",

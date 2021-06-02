@@ -18,8 +18,13 @@ export const Basket = () => {
         cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
     }
 
-
-
+    targetView('Basket');
+    function targetView(viewName) {
+        // Validate if the Target Libraries are available on your website
+        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+          window.adobe.target.triggerView(viewName);
+        }
+      }
 
     const handleChange = (e) => {
         isChecked = e.target.checked;
