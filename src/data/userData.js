@@ -1,19 +1,19 @@
 const Users = [
     {
-        email : 'Piyush@.com',
-        password : '12345678'
+        email : 'a@test.com',
+        password : '123'
     },
     {
-        email : 'Piyush1@.com',
-        password : '12345678'
+        email : 'b@test.com',
+        password : '123'
     },
     {
-        email : 'Piyush2@.com',
-        password : '12345678'
+        email : 'c@test.com',
+        password : '123'
     },
     {
-        email : 'Piyush3@.com',
-        password : '12345678'
+        email : 'd@test.com',
+        password : '123'
     }
 ]
 
