@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useHistory} from 'react-router-dom'
 import '../css/login.css';
 import users from '../data/userData'
@@ -6,8 +6,9 @@ import users from '../data/userData'
 
 
 export const Login = () => {
-    const [email_value, setEmailValue] = useState(null)
-    const [passwordValue, setPasswordValue] = useState(null)
+    let email_value = "";
+    let passwordValue = "";
+
 
    const history = useHistory()
 
@@ -19,11 +20,12 @@ export const Login = () => {
     }
   }
     const emailChange = (e) =>{
-        setEmailValue(e.target.value)
+        email_value = e.target.value
     }
 
     const passwordChange = (e) =>{
-        setPasswordValue(e.target.value)
+        passwordValue = e.target.value
+
     }
     
 
