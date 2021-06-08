@@ -78,15 +78,8 @@ export const MediaCard = (props) => {
 
           <div className="col-6">
 
-            {props.isAccount ? "" : <Button size="small" color="primary"> {props.product.price} </Button>}
+            {props.isAccount ? "" : <Button size="small" color="primary" disabled> {props.product.price} </Button>}
 
-
-            {/* <Button size="small" color="primary">
-              $250
-               <span className="badge badge-secondary">Secondary</span>
-            </Button> */}
-
- 
           </div>
 
           { props.isAccount ?
@@ -101,7 +94,7 @@ export const MediaCard = (props) => {
             :
 
             <div className="col-6" style={{ textAlign: "end" }}>
-              <button className="btn btn-sm btn-signin" >
+              <button  className="btn  btn-signin" >
                 {/* <Link to={{ pathname: `/product/${props.product.name}` }} style={linkStyle}> Learn More </Link> */}
                 <Link to={{ pathname: `/productdetail`,   search: props.product.name }} style={linkStyle}> Learn More </Link>
               </button>

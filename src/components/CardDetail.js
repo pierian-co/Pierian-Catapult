@@ -29,7 +29,7 @@ export const CardDetail = () => {
 
                     </form>
 
-                    <button className="btn btn-sm btn-signin" >
+                    <button className="btn btn-sm btn-signin btn-resize" >
                         <Link to={{ pathname: `/checkoutThank` }} style={linkStyle}> submit </Link>
                     </button>
                 </div>

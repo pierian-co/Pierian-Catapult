@@ -33,11 +33,9 @@ export const Basket = () => {
     const checkout = () => {
 
         if (isChecked) {
-            console.log("two step checkout");
             histroy.push("/personalDetail")
         }
         else {
-            console.log("one step checkout");
             histroy.push("/checkout")
 
 

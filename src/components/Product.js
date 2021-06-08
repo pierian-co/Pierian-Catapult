@@ -13,8 +13,6 @@ export const Product = () => {
     let location = useLocation();
     let histroy = useHistory();
 
-    console.log("location.search.substring(1)",  location.search.substring(1));
-
     const productData = products.find(product => product.name === location.search.substring(1))
 
     targetView('ProductDetails-' + location.search.substring(1));

@@ -35,7 +35,7 @@ export const PersonalDetail = () => {
 
                     </form>
 
-                    <button className="btn btn-sm btn-signin" >
+                    <button className="btn btn-sm btn-signin btn-resize" >
                         <Link to={{ pathname: `/cardDetail` }} style={linkStyle}> Next </Link>
                     </button>
                 </div>
