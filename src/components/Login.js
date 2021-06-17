@@ -42,13 +42,19 @@ export const Login = () => {
                 try{
                     if(window.Visitor){ 
                         window.Visitor.getInstance("14AF2CD35CD3D8060A495CDCAdobeOrg").setCustomerIDs({ 
-                            "userid":{ 
+                            "demo_user":{ 
                                 "id":email_value, 
                                 "authState":window.Visitor.AuthState.AUTHENTICATED
                             }
                         }, "SHA-256"); 
 
                     }
+                    window.adobe.target.trackEvent({
+                            "mbox": "clicked-cta",
+                            "params": {
+                              "param1": "value1" 
+                             } 
+                            });
                     
                 }
                 catch(e){
