@@ -29,7 +29,8 @@ export const HomeProducts = () => {
             window.adobe.target.getOffer({
                 "mbox": "target-global-mbox",
                 "params":{
-                "view-name": "Home"
+                    "website": "cuisines",
+                    "page_name": "home"
                 },
                 "success": function(offer) {
                     window.adobe.target.applyOffer( {
