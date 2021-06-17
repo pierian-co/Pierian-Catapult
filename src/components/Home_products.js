@@ -23,7 +23,29 @@ export const HomeProducts = () => {
         padding: " 0 10px",
         position: "relative",
     }
-
+    // Call Adobe Target
+    try{
+        if (window.adobe && window.adobe.target && typeof window.adobe.target.getOffer === 'function') {
+            window.adobe.target.getOffer({
+                "mbox": "target-global-mbox",
+                "params":{
+                "view-name": "Home"
+                },
+                "success": function(offer) {
+                    window.adobe.target.applyOffer( {
+                        "mbox": "target-global-mbox", 
+                        "offer": offer
+                    } ); 
+                },
+                "error": function(status, error) {
+                console.log('Error', status, error); 
+                } 
+            });
+        }
+    }
+    catch (e){
+        console.log(e);
+    }
     targetView('Home');
     function targetView(viewName) {
         // Validate if the Target Libraries are available on your website
