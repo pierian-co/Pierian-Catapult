@@ -11,6 +11,17 @@ export const CheckoutThanks = () => {
   else {
     cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
   }
+  
+  if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+    window.adobe.target.trackEvent({ 
+      "mbox": "orderConfirmPage", 
+      "params":{  
+          "orderId": Math.round(Math.random()*10000),  
+          "orderTotal": cartProduct.price,  
+          "productPurchasedId": cartProduct.name 
+      } 
+  });
+  }
 
   targetView('OrderComplete');
   function targetView(viewName) {
