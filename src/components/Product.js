@@ -14,7 +14,16 @@ export const Product = () => {
     let histroy = useHistory();
 
     const productData = products.find(product => product.name === location.search.substring(1))
-
+    
+    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
+        window.adobe.target.trackEvent({
+            "mbox": "collect-params",
+            "params": {
+              "entity.id":  location.search.substring(1)
+             } 
+            });
+    }
+    
     targetView('ProductDetails-' + location.search.substring(1));
     function targetView(viewName) {
         // Validate if the Target Libraries are available on your website
