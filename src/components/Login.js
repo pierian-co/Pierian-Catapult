@@ -12,13 +12,7 @@ export const Login = () => {
 
    const history = useHistory()
 
-   targetView('Login');
-   function targetView(viewName) {
-    // Validate if the Target Libraries are available on your website
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-      window.adobe.target.triggerView(viewName);
-    }
-  }
+ 
     const emailChange = (e) =>{
         email_value = e.target.value
     }
