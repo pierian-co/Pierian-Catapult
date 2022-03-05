@@ -12,13 +12,7 @@ export const Checkout = () => {
         color: "white",
     }
 
-    targetView('Checkout');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+ 
     return (
 
         <div className="container back_img">

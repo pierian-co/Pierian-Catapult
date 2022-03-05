@@ -20,6 +20,13 @@ import { ProductDescription } from './components/Product_Description'
 import { Product } from './components/Product'
 
 function App() {
+
+  (function(a,b,c,d){
+    a='https://tags.tiqcdn.com/utag/pierian-sandbox/main/prod/utag.js';
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+    
   return (
     <>
       <Router>
