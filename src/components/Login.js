@@ -12,6 +12,10 @@ export const Login = () => {
 
    const history = useHistory()
 
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":"myaccount: login","tealium_event": "view"});
+    }
  
     const emailChange = (e) =>{
         email_value = e.target.value
@@ -29,42 +33,26 @@ export const Login = () => {
             return user.email === email_value
         })
         if (newUser.length  === 0) {
-            alert("Incorrect Email")
+             // Tealium call for page-view
+            if(window.utag){ 
+                window.utag.view({"page_name":"myaccount: login","tealium_event": "error", "error_name": "incorrect email address"});
+            }
+            alert("Incorrect Email");
         }
         else {
             if ( newUser[0].password ===  passwordValue) {
-                try{
-                    if(window.Visitor){ 
-                        window.Visitor.getInstance("14AF2CD35CD3D8060A495CDCAdobeOrg").setCustomerIDs({ 
-                            "demo_user":{ 
-                                "id":email_value, 
-                                "authState":window.Visitor.AuthState.AUTHENTICATED
-                            }
-                        }, "SHA-256"); 
-
-                    }
-                    window.adobe.target.trackEvent({
-                            "mbox": "clicked-cta",
-                            "params": {
-                              "param1": "value1" 
-                             } 
-                            });
-                    
-                }
-                catch(e){
-                    console.log(e);
-                }
-
                 history.push('/account')
             }
             else {
-                alert("Incorrect Password")
+                // Tealium call for page-view
+                if(window.utag){ 
+                    window.utag.view({"page_name":"myaccount: login","tealium_event": "error", "error_name":"incorrect password"});
+                }
+                alert("Incorrect Password");
+                 
             }
 
-            }
-            
-        
-
+        }
     }
 
 

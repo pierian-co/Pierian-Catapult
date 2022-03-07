@@ -22,6 +22,11 @@ export const CheckoutThanks = () => {
     color: "#666"
   }
 
+   // Tealium call for page-view
+   if(window.utag){ 
+    window.utag.view({"page_name":"order complete","tealium_event": "view"});
+}
+
   return (
 
     <div className="container back_img">

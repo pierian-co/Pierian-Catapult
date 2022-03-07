@@ -24,9 +24,10 @@ export const HomeProducts = () => {
         position: "relative",
     }
 
-  
-        
-    window.utag.view({"page_name":"home","tealium_event": "view"});
+    // Tealium call for page-view
+    if(window.utag){    
+        window.utag.view({"page_name":"home","tealium_event": "view"});
+    }
     
     return (
         <div className="container">

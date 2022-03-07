@@ -12,7 +12,11 @@ export const Checkout = () => {
         color: "white",
     }
 
- 
+     // Tealium call for page-view
+     if(window.utag){ 
+        window.utag.view({"page_name":"checkout","tealium_event": "view"});
+    }
+
     return (
 
         <div className="container back_img">

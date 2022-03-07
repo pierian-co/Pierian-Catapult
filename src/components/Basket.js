@@ -17,8 +17,10 @@ export const Basket = () => {
     else {
         cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
     }
-
-   
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":"basket","tealium_event": "view"});
+    }
 
     const handleChange = (e) => {
         isChecked = e.target.checked;

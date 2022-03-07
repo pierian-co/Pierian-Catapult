@@ -24,6 +24,11 @@ export const AccountProducts = () => {
         padding:" 0 10px",
         position: "relative",
       }
+    
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":"myaccount: products","tealium_event": "view"});
+    }
 
       
     return (

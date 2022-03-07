@@ -15,8 +15,10 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    window.utag.view({"page_name":"home","tealium_event": "view"});
-    
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":productData.name,"tealium_event": "view"});
+    }
 
     let imageBoderStyle = {
         border: "5px solid #ddd",
@@ -29,8 +31,11 @@ export const Product = () => {
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
         histroy.push("/basket")
-        window.utag.link({"page_name":"home","tealium_event": "link"});
-    }
+        // Tealium call for link-click
+        if(window.utag){ 
+            window.utag.link({"page_name":productData.name,"tealium_event": "add_to_cart"});
+        }
+    }   
 
 
 
