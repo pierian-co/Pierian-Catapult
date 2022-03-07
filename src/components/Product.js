@@ -15,22 +15,7 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
-        window.adobe.target.trackEvent({
-            "mbox": "collect-params",
-            "params": {
-              "entity.id":  location.search.substring(1)
-             } 
-            });
-    }
-    
-    targetView('ProductDetails-' + location.search.substring(1));
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+    window.utag.view({"page_name":"home","tealium_event": "view"});
     
 
     let imageBoderStyle = {
@@ -44,7 +29,7 @@ export const Product = () => {
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
         histroy.push("/basket")
-
+        window.utag.link({"page_name":"home","tealium_event": "link"});
     }
 
 

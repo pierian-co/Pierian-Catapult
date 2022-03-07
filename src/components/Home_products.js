@@ -23,7 +23,10 @@ export const HomeProducts = () => {
         padding: " 0 10px",
         position: "relative",
     }
-    utag.view({"page_name":"home"});
+
+  
+        
+    window.utag.view({"page_name":"home","tealium_event": "view"});
     
     return (
         <div className="container">
