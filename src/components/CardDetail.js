@@ -14,7 +14,7 @@ export const CardDetail = () => {
 
      // Tealium call for page-view
      if(window.utag){ 
-        window.utag.view({"page_name":"checkout: card details","tealium_event": "view"});
+        window.utag.view({"page_name":"checkout: card details","tealium_event": "page_view"});
     }
 
     return (

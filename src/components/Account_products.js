@@ -27,7 +27,7 @@ export const AccountProducts = () => {
     
     // Tealium call for page-view
     if(window.utag){ 
-        window.utag.view({"page_name":"myaccount: products","tealium_event": "view"});
+        window.utag.view({"page_name":"myaccount: products","tealium_event": "page_view"});
     }
 
       

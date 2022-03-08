@@ -17,7 +17,7 @@ export const Product = () => {
     
     // Tealium call for page-view
     if(window.utag){ 
-        window.utag.view({"page_name":productData.name,"tealium_event": "view"});
+        window.utag.view({"page_name":"product: " + productData.name,"tealium_event": "product_view", "product_id": [productData.id], "product_name": [productData.name], "product_unit_price": [productData.price]});
     }
 
     let imageBoderStyle = {
@@ -32,8 +32,9 @@ export const Product = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
         histroy.push("/basket")
         // Tealium call for link-click
+        let prod_quantity = 1;
         if(window.utag){ 
-            window.utag.link({"page_name":productData.name,"tealium_event": "add_to_cart"});
+            window.utag.link({"page_name": "product: " + productData.name,"product_id": [productData.id], "product_name": [productData.name], "product_unit_price": [productData.price], "product_quantity":[prod_quantity], "tealium_event": "cart_add"});
         }
     }   
 

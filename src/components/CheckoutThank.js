@@ -24,7 +24,8 @@ export const CheckoutThanks = () => {
 
    // Tealium call for page-view
    if(window.utag){ 
-    window.utag.view({"page_name":"order complete","tealium_event": "view"});
+    let prod_quantity = 1;
+    window.utag.view({"page_name":"order complete","tealium_event": "purchase", "product_id":[cartProduct.id],"product_name":[cartProduct.name], "product_unit_price": [cartProduct.price], "product_quantity":[prod_quantity],"order_id": Date.now() + '' + Math.random() });
 }
 
   return (

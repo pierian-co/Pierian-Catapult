@@ -6,7 +6,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/indian.jpg',
         imageUrl : './assets/img/gallery/indian2.jpg',
-        price : '$399'
+        price : 399.00
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/caribbean.jpg',
         imageUrl : './assets/img/gallery/caribbean2.jpg',
-        price : '$199'
+        price : 199.00
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/vietnamese.jpg',
         imageUrl : './assets/img/gallery/vietnamese2.jpg',
-        price : '$299'
+        price : 299.00
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/korean.jpg',
         imageUrl : './assets/img/gallery/korean2.jpg',
-        price : '$499'
+        price : 499.00
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/german.jpg',
         imageUrl : './assets/img/gallery/german2.jpg',
-        price : '$199'
+        price : 199.00
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ const Products = [
         description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laborum neque eius iure ea fugit, saepe molestiae deleniti cum sequi nihil culpa.',
         thumbNailUrl : './assets/img/gallery/japanese.jpg',
         imageUrl : './assets/img/gallery/japanese2.jpg',
-        price : '$299'
+        price : 299.00
     },
 ]
 

@@ -14,7 +14,7 @@ export const Login = () => {
 
     // Tealium call for page-view
     if(window.utag){ 
-        window.utag.view({"page_name":"myaccount: login","tealium_event": "view"});
+        window.utag.view({"page_name":"myaccount: login","tealium_event": "page_view"});
     }
  
     const emailChange = (e) =>{
@@ -33,20 +33,24 @@ export const Login = () => {
             return user.email === email_value
         })
         if (newUser.length  === 0) {
-             // Tealium call for page-view
+             // Tealium call for email error
             if(window.utag){ 
-                window.utag.view({"page_name":"myaccount: login","tealium_event": "error", "error_name": "incorrect email address"});
+                window.utag.link({"page_name":"myaccount: login","tealium_event": "error", "error_name": "incorrect email address"});
             }
             alert("Incorrect Email");
         }
         else {
             if ( newUser[0].password ===  passwordValue) {
+                // Tealium call for login
+                if(window.utag){ 
+                    window.utag.link({"page_name":"myaccount: login","tealium_event": "user_login", "customer_id":email_value});
+                }
                 history.push('/account')
             }
             else {
-                // Tealium call for page-view
+                // Tealium call for password error
                 if(window.utag){ 
-                    window.utag.view({"page_name":"myaccount: login","tealium_event": "error", "error_name":"incorrect password"});
+                    window.utag.link({"page_name":"myaccount: login","tealium_event": "error", "error_name":"incorrect password"});
                 }
                 alert("Incorrect Password");
                  

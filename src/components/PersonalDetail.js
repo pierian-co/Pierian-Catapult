@@ -14,7 +14,7 @@ export const PersonalDetail = () => {
 
      // Tealium call for page-view
      if(window.utag){ 
-        window.utag.view({"page_name":"checkout: personal details","tealium_event": "view"});
+        window.utag.view({"page_name":"checkout: personal details","tealium_event": "page_view"});
     }
    
 

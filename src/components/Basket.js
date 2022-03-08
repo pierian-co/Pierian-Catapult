@@ -19,7 +19,8 @@ export const Basket = () => {
     }
     // Tealium call for page-view
     if(window.utag){ 
-        window.utag.view({"page_name":"basket","tealium_event": "view"});
+        let prod_quantity = 1;
+        window.utag.view({"page_name":"basket", "tealium_event":"cart_view", "product_id":[cartProduct.id], "product_name":[cartProduct.name], "product_unit_price":[cartProduct.price], "product_quantity":[prod_quantity]});
     }
 
     const handleChange = (e) => {
