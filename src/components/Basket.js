@@ -18,6 +18,7 @@ export const Basket = () => {
         cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
     }
     // Tealium call for page-view
+    // Added a new comment
     if(window.utag){ 
         let prod_quantity = 1;
         window.utag.view({"page_name":"basket", "tealium_event":"cart_view", "product_id":[cartProduct.id], "product_name":[cartProduct.name], "product_unit_price":[cartProduct.price], "product_quantity":[prod_quantity]});
