@@ -15,22 +15,6 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
-        window.adobe.target.trackEvent({
-            "mbox": "collect-params",
-            "params": {
-              "entity.id":  location.search.substring(1)
-             } 
-            });
-    }
-    
-    targetView('ProductDetails-' + location.search.substring(1));
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
     
 
     let imageBoderStyle = {
@@ -43,16 +27,30 @@ export const Product = () => {
 
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
-        histroy.push("/basket")
+        histroy.push("/basket");
 
     }
 
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#productdetails").length==1 && window._satellite){
+    window.adobeDataLayer.push({
 
+'pagename':'pdp',
+'productname':productData.name,
+'userID': '123456',
+'pagetype': 'home',
+
+});
+    window._satellite.track('pdp');
+    window._satellite.track('target');
+    clearInterval(Del)
+}
+},500);
 
     return (
 
         <>
-            <div className="container">
+            <div className="container" id="productdetails">
                 <div className="jumbotron row">
                     <div className="col">
                         <img style={imageBoderStyle} src={productData.imageUrl} alt="indian" />

@@ -45,8 +45,23 @@ export const MediaCard = (props) => {
   
   const onClick = () => {
     localStorage.setItem("accountCartData", JSON.stringify(props.product));
-    histroy.push("/account/thanks")
+    histroy.push("/account/thanks");
 
+
+}
+
+const onClick2 = () => {
+   
+window.adobeDataLayer.push({
+
+'event': 'click',
+'pagename':'click call',
+'userID': '123456',
+'pagetype': 'home',
+'productname': 'vietnamese'
+
+});
+ window._satellite.track('click')
 }
 
 
@@ -94,7 +109,7 @@ export const MediaCard = (props) => {
             :
 
             <div className="col-6" style={{ textAlign: "end" }}>
-              <button  className="btn  btn-signin" >
+              <button  className="btn  btn-signin" onClick={() => onClick2()} >
                 {/* <Link to={{ pathname: `/product/${props.product.name}` }} style={linkStyle}> Learn More </Link> */}
                 <Link to={{ pathname: `/productdetail`,   search: props.product.name }} style={linkStyle}> Learn More </Link>
               </button>
