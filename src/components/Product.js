@@ -15,7 +15,6 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    
 
     let imageBoderStyle = {
         border: "5px solid #ddd",
@@ -29,20 +28,29 @@ export const Product = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
         histroy.push("/basket");
 
-    }
+        window.adobeDataLayer.push({
 
-    var Del=setInterval(function(){
-    if(document.querySelectorAll("#productdetails").length==1 && window._satellite){
-    window.adobeDataLayer.push({
-
-'pagename':'pdp',
-'productname':productData.name,
-'userID': '123456',
-'pagetype': 'home',
+        'event': 'click',
+        'linkname':'add to cart',
+        'userID': '123456',
 
 });
-    window._satellite.track('pdp');
-    window._satellite.track('target');
+ window._satellite.track('click')
+
+    }
+
+//Data layer update and direct call rules for analytics and target from Launch
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#productdetails").length===1){
+    window.adobeDataLayer.push({
+'screenname':'product detail',
+'pagename':'product detail page',
+'userID': '123456'
+
+});
+    window._satellite.track('analytics');
+    window._satellite.track('triggerview');
+    window._satellite.track('addparams');
     clearInterval(Del)
 }
 },500);

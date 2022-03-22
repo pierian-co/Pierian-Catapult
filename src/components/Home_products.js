@@ -24,18 +24,51 @@ export const HomeProducts = () => {
         position: "relative",
     }
     
+    //    // Call Adobe Target
+    // try{
+    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.getOffer === 'function') {
+    //         window.adobe.target.getOffer({
+    //             "mbox": "target-global-mbox",
+    //             "params":{
+    //                 "website": "cuisines",
+    //                 "page_name": "home"
+    //             },
+    //             "success": function(offer) {
+    //                 window.adobe.target.applyOffer( {
+    //                     "mbox": "target-global-mbox", 
+    //                     "offer": offer
+    //                 } ); 
+    //             },
+    //             "error": function(status, error) {
+    //             console.log('Error', status, error); 
+    //             } 
+    //         });
+    //     }
+    // }
+    // catch (e){
+    //     console.log(e);
+    // }
+    // targetView('Home');
+    // function targetView(viewName) {
+    //     // Validate if the Target Libraries are available on your website
+    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+    //       window.adobe.target.triggerView(viewName);
+    //     }
+    //   }
+
+//Data layer update and direct call rules for analytics and target from Launch
     var Del=setInterval(function(){
     if(document.querySelectorAll("#home").length==1){
     window.adobeDataLayer.push({
+'screenname':'home',
+'pagename':'home launch page',
+'userID': '123456'
 
-'pagename':'home launch',
-'productname':'product',
-'userID': '123456',
-'pagetype': 'home',
 
 });
-    window._satellite.track('pdp');
-    window._satellite.track('target');
+    window._satellite.track('analytics');
+    window._satellite.track('triggerview');
+    window._satellite.track('addparams');
     clearInterval(Del)
 }
 },1000);

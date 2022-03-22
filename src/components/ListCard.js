@@ -50,15 +50,14 @@ export const MediaCard = (props) => {
 
 }
 
+//Analytics click Launch direct call 
 const onClick2 = () => {
    
 window.adobeDataLayer.push({
 
 'event': 'click',
-'pagename':'click call',
+'linkname':'learn more',
 'userID': '123456',
-'pagetype': 'home',
-'productname': 'vietnamese'
 
 });
  window._satellite.track('click')
