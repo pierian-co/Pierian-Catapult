@@ -15,22 +15,22 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
-        window.adobe.target.trackEvent({
-            "mbox": "collect-params",
-            "params": {
-              "entity.id":  location.search.substring(1)
-             } 
-            });
-    }
+    // if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
+    //     window.adobe.target.trackEvent({
+    //         "mbox": "collect-params",
+    //         "params": {
+    //           "entity.id":  location.search.substring(1)
+    //          } 
+    //         });
+    // }
     
-    targetView('ProductDetails-' + location.search.substring(1));
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+    // targetView('ProductDetails-' + location.search.substring(1));
+    // function targetView(viewName) {
+    //     // Validate if the Target Libraries are available on your website
+    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+    //       window.adobe.target.triggerView(viewName);
+    //     }
+    //   }
     
 
     let imageBoderStyle = {
@@ -43,16 +43,38 @@ export const Product = () => {
 
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
-        histroy.push("/basket")
+        histroy.push("/basket");
+
+         window.adobeDataLayer.push({
+
+        'event': 'click',
+        'linkname':'add to cart',
+        'userID': '123456',
+
+});
 
     }
 
+//Data layer update and direct call rules for analytics and target from Launch
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#product").length==1){
+    window.adobeDataLayer.push({
+'event': 'landing',
+'screenname':'product detail',
+'pagename':'product detail page',
+'userID': '123456'
+
+
+});
+    clearInterval(Del)
+}
+},1000);
 
 
     return (
 
         <>
-            <div className="container">
+            <div className="container" id="product">
                 <div className="jumbotron row">
                     <div className="col">
                         <img style={imageBoderStyle} src={productData.imageUrl} alt="indian" />

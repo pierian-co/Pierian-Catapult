@@ -18,13 +18,13 @@ export const Basket = () => {
         cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
     }
 
-    targetView('Basket');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+    // targetView('Basket');
+    // function targetView(viewName) {
+    //     // Validate if the Target Libraries are available on your website
+    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
+    //       window.adobe.target.triggerView(viewName);
+    //     }
+    //   }
 
     const handleChange = (e) => {
         isChecked = e.target.checked;
@@ -42,12 +42,25 @@ export const Basket = () => {
         }
 
     }
+    
+    //Data layer update and direct call rules for analytics and target from Launch
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#home").length==1){
+    window.adobeDataLayer.push({
+'event': 'landing',
+'screenname':'basket',
+'pagename':'basket page',
+'userID': '123456'
 
+});
+    clearInterval(Del)
+}
+},1000);
 
     return (
         <>
 
-            <div className="container back_img">
+            <div className="container back_img" id="basket">
                 <div className="card" style={{ width: "18rem" }} >
                     <img className="card-img-top" src={cartProduct.thumbNailUrl} alt={cartProduct.name} />
                     <div className="card-body">
