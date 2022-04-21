@@ -43,17 +43,35 @@ export const Product = () => {
 
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
-        histroy.push("/basket")
+        histroy.push("/basket");
+        window.dataLayer.push({
+ 'event': 'click',
+ 'pageTitle': 'Product Page',
+ 'ctaName': 'Add to Cart',
+ 'visitorType': 'customer'
+
+});
 
     }
 
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#pdp").length===1){
+    window.dataLayer.push({
+ 'event': 'Pageview',
+ 'pageTitle': 'Product Page',
+ 'visitorType': 'customer'
 
+});
+    clearInterval(Del)
+}
+
+},500);
 
     return (
 
         <>
             <div className="container">
-                <div className="jumbotron row">
+                <div className="jumbotron row" id="pdp">
                     <div className="col">
                         <img style={imageBoderStyle} src={productData.imageUrl} alt="indian" />
                     </div>

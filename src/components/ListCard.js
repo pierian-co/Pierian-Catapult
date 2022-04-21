@@ -49,6 +49,15 @@ export const MediaCard = (props) => {
 
 }
 
+const onClick2 = () => {
+    window.dataLayer.push({
+ 'event': 'click',
+ 'pageTitle': 'Home Page',
+ 'ctaName': 'Learn More',
+ 'visitorType': 'customer'
+
+});
+}
 
 
   return (
@@ -94,7 +103,7 @@ export const MediaCard = (props) => {
             :
 
             <div className="col-6" style={{ textAlign: "end" }}>
-              <button  className="btn  btn-signin" >
+              <button  className="btn  btn-signin" onClick={() => onClick2()} >
                 {/* <Link to={{ pathname: `/product/${props.product.name}` }} style={linkStyle}> Learn More </Link> */}
                 <Link to={{ pathname: `/productdetail`,   search: props.product.name }} style={linkStyle}> Learn More </Link>
               </button>
