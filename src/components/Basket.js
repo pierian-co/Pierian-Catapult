@@ -31,7 +31,13 @@ export const Basket = () => {
     }
 
     const checkout = () => {
+        window.dataLayer.push({
+ 'event': 'Pageview',
+ 'pageTitle': 'Basket',
+ 'ctaName' : 'Checkout',
+ 'visitorType': 'customer'
 
+});
         if (isChecked) {
             histroy.push("/personalDetail")
         }
@@ -42,12 +48,24 @@ export const Basket = () => {
         }
 
     }
+    
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#basket").length===1){
+    window.dataLayer.push({
+ 'event': 'Pageview',
+ 'pageTitle': 'Basket',
+ 'visitorType': 'customer'
 
+});
+    clearInterval(Del)
+}
+
+},500);
 
     return (
         <>
 
-            <div className="container back_img">
+            <div className="container back_img" id="basket">
                 <div className="card" style={{ width: "18rem" }} >
                     <img className="card-img-top" src={cartProduct.thumbNailUrl} alt={cartProduct.name} />
                     <div className="card-body">

@@ -55,8 +55,20 @@ export const HomeProducts = () => {
         }
       }
 
+var Del=setInterval(function(){
+    if(document.querySelectorAll("#home").length===1){
+    window.dataLayer.push({
+ 'event': 'Pageview',
+ 'pageTitle': 'Home page',
+ 'visitorType': 'customer'
+
+});
+    clearInterval(Del)
+}
+
+},500);
     return (
-        <div className="container">
+        <div className="container" id="home">
 
             <div className="jumbotron row">
                 <div className="pb-5">
