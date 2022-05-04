@@ -16,13 +16,14 @@ import { CheckoutThanks } from "./components/CheckoutThank";
 import { Thanks } from "./components/thanks";
 import { Basket } from './components/Basket'
 import { ProductDescription } from './components/Product_Description'
-
+import  FireViewName from './components/FireViewName';
 import { Product } from './components/Product'
 
 function App() {
   return (
     <>
       <Router>
+        
         <Header />
         <Switch>
           <Route exact path="/">

@@ -23,39 +23,10 @@ export const HomeProducts = () => {
         padding: " 0 10px",
         position: "relative",
     }
-    // // Call Adobe Target
-    // try{
-    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.getOffer === 'function') {
-    //         window.adobe.target.getOffer({
-    //             "mbox": "target-global-mbox",
-    //             "params":{
-    //                 "website": "cuisines",
-    //                 "page_name": "home"
-    //             },
-    //             "success": function(offer) {
-    //                 window.adobe.target.applyOffer( {
-    //                     "mbox": "target-global-mbox", 
-    //                     "offer": offer
-    //                 } ); 
-    //             },
-    //             "error": function(status, error) {
-    //             console.log('Error', status, error); 
-    //             } 
-    //         });
-    //     }
-    // }
-    // catch (e){
-    //     console.log(e);
-    // }
-    // targetView('Home');
-    // function targetView(viewName) {
-    //     // Validate if the Target Libraries are available on your website
-    //     if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-    //       window.adobe.target.triggerView(viewName);
-    //     }
-    //   }
+    
 
-    //Data layer update and direct call rules for analytics and target from Launch
+// //     //Data layer update and direct call rules for analytics and target from Launch
+
     var Del=setInterval(function(){
     if(document.querySelectorAll("#home").length==1){
     window.adobeDataLayer.push({
@@ -64,16 +35,31 @@ export const HomeProducts = () => {
 'pagename':'home launch page',
 'userID': '123456'
 
-
 });
+
+if(window.alloy) {
+      window.alloy("sendEvent", {
+        "renderDecisions": false,
+        "xdm": {
+          "web": {
+            "webPageDetails": {
+              "viewName": "Home"
+            }
+          }
+        }
+      });
+    }
+    
+
     clearInterval(Del)
 }
 },1000);
 
-    return (
-        <div className="container">
 
-            <div className="jumbotron row">
+    return (
+        <div className="container" id="home" >
+
+            <div className="jumbotron row" id="heroimage">
                 <div className="pb-5">
                     <img style={bannerImageStyle} src="./assets/img/food_banner.jpg" alt="banner" />
 

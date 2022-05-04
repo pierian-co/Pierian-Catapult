@@ -66,6 +66,19 @@ export const Product = () => {
 
 
 });
+    if(window.alloy) {
+      window.alloy("sendEvent", {
+        "renderDecisions": true,
+        "xdm": {
+          "web": {
+            "webPageDetails": {
+              "viewName": "Product page"
+            }
+          }
+        }
+      });
+    }
+
     clearInterval(Del)
 }
 },1000);

@@ -45,7 +45,7 @@ export const Basket = () => {
     
     //Data layer update and direct call rules for analytics and target from Launch
     var Del=setInterval(function(){
-    if(document.querySelectorAll("#home").length==1){
+    if(document.querySelectorAll("#basket").length==1){
     window.adobeDataLayer.push({
 'event': 'landing',
 'screenname':'basket',
@@ -53,6 +53,19 @@ export const Basket = () => {
 'userID': '123456'
 
 });
+    if(window.alloy) {
+      window.alloy("sendEvent", {
+        "renderDecisions": false,
+        "xdm": {
+          "web": {
+            "webPageDetails": {
+              "viewName": "Basket"
+            }
+          }
+        }
+      });
+    }
+
     clearInterval(Del)
 }
 },1000);
