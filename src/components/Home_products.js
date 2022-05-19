@@ -23,40 +23,22 @@ export const HomeProducts = () => {
         padding: " 0 10px",
         position: "relative",
     }
-    // Call Adobe Target
-    try{
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.getOffer === 'function') {
-            window.adobe.target.getOffer({
-                "mbox": "target-global-mbox",
-                "params":{
-                    "website": "cuisines",
-                    "page_name": "home"
-                },
-                "success": function(offer) {
-                    window.adobe.target.applyOffer( {
-                        "mbox": "target-global-mbox", 
-                        "offer": offer
-                    } ); 
-                },
-                "error": function(status, error) {
-                console.log('Error', status, error); 
-                } 
-            });
-        }
-    }
-    catch (e){
-        console.log(e);
-    }
-    targetView('Home');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+    
+    //Pageview call GA
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#home").length===1){
+    window.dataLayer.push({
+'event': 'Pageview',
+'pageTitle':'home',
+'userID': '123456'
+
+});
+    clearInterval(Del)
+}
+},500);
 
     return (
-        <div className="container">
+        <div className="container" id="home">
 
             <div className="jumbotron row">
                 <div className="pb-5">

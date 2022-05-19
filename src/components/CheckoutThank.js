@@ -11,25 +11,7 @@ export const CheckoutThanks = () => {
   else {
     cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
   }
-  
-  if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-    window.adobe.target.trackEvent({ 
-      "mbox": "orderConfirmPage", 
-      "params":{  
-          "orderId": Math.round(Math.random()*10000),  
-          "orderTotal": cartProduct.price,  
-          "productPurchasedId": cartProduct.name 
-      } 
-  });
-  }
-
-  targetView('OrderComplete');
-  function targetView(viewName) {
-    // Validate if the Target Libraries are available on your website
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-      window.adobe.target.triggerView(viewName);
-    }
-  }
+ 
   let textStyle = {
     fontSize: "18px",
     textTransform: "uppercase",

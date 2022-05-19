@@ -15,23 +15,6 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
-        window.adobe.target.trackEvent({
-            "mbox": "collect-params",
-            "params": {
-              "entity.id":  location.search.substring(1)
-             } 
-            });
-    }
-    
-    targetView('ProductDetails-' + location.search.substring(1));
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
-    
 
     let imageBoderStyle = {
         border: "5px solid #ddd",
@@ -40,19 +23,38 @@ export const Product = () => {
         width: "100%",
         height: "26rem",
     }
-
+    
+    //Click call GA 
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
-        histroy.push("/basket")
+        histroy.push("/basket");
+
+        window.dataLayer.push({
+
+        'event': 'click',
+        'ctaName':'add to cart',
+        'userID': '123456',
+
+       });
 
     }
 
+   //Pageview call GA
+    var Del=setInterval(function(){
+    if(document.querySelectorAll("#pdp").length===1){
+    window.dataLayer.push({
+'event': 'Pageview',
+'pageTitle':'pdp',
+'userID': '123456'
 
-
+});
+    clearInterval(Del)
+}
+},500);
     return (
 
         <>
-            <div className="container">
+            <div className="container" id="pdp">
                 <div className="jumbotron row">
                     <div className="col">
                         <img style={imageBoderStyle} src={productData.imageUrl} alt="indian" />

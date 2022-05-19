@@ -12,16 +12,22 @@ export const Checkout = () => {
         color: "white",
     }
 
-    targetView('Checkout');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+  
+  var Del=setInterval(function(){
+    if(document.querySelectorAll("#checkout").length===1){
+    window.dataLayer.push({
+'event': 'Pageview',
+'pageTitle':'checkout',
+'userID': '123456'
+
+});
+    clearInterval(Del)
+}
+},500);
+
     return (
 
-        <div className="container back_img">
+        <div className="container back_img" id="checkout"> 
             <div className="card card-container">
                 <h5>Please submit your Details  </h5>
 
