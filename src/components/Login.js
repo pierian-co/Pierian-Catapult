@@ -12,13 +12,11 @@ export const Login = () => {
 
    const history = useHistory()
 
-   targetView('Login');
-   function targetView(viewName) {
-    // Validate if the Target Libraries are available on your website
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-      window.adobe.target.triggerView(viewName);
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":"myaccount: login","tealium_event": "page_view"});
     }
-  }
+ 
     const emailChange = (e) =>{
         email_value = e.target.value
     }
@@ -35,42 +33,30 @@ export const Login = () => {
             return user.email === email_value
         })
         if (newUser.length  === 0) {
-            alert("Incorrect Email")
+             // Tealium call for email error
+            if(window.utag){ 
+                window.utag.link({"page_name":"myaccount: login","tealium_event": "error", "error_name": "incorrect email address"});
+            }
+            alert("Incorrect Email");
         }
         else {
             if ( newUser[0].password ===  passwordValue) {
-                try{
-                    if(window.Visitor){ 
-                        window.Visitor.getInstance("14AF2CD35CD3D8060A495CDCAdobeOrg").setCustomerIDs({ 
-                            "demo_user":{ 
-                                "id":email_value, 
-                                "authState":window.Visitor.AuthState.AUTHENTICATED
-                            }
-                        }, "SHA-256"); 
-
-                    }
-                    window.adobe.target.trackEvent({
-                            "mbox": "clicked-cta",
-                            "params": {
-                              "param1": "value1" 
-                             } 
-                            });
-                    
+                // Tealium call for login
+                if(window.utag){ 
+                    window.utag.link({"page_name":"myaccount: login","tealium_event": "user_login", "customer_id":email_value});
                 }
-                catch(e){
-                    console.log(e);
-                }
-
                 history.push('/account')
             }
             else {
-                alert("Incorrect Password")
+                // Tealium call for password error
+                if(window.utag){ 
+                    window.utag.link({"page_name":"myaccount: login","tealium_event": "error", "error_name":"incorrect password"});
+                }
+                alert("Incorrect Password");
+                 
             }
 
-            }
-            
-        
-
+        }
     }
 
 

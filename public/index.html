@@ -14,33 +14,25 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>Cuisines Demo</title>
-    <script 
-    src="VisitorAPI.js">
-  </script>
-   <script>
-    Visitor.getInstance("14AF2CD35CD3D8060A495CDC@AdobeOrg");
-  </script>
-  <script>
-    window.targetGlobalSettings = {
-      overrideMboxEdgeServer: true,
-      clientCode: "pierianemeapartnersa",
-      imsOrgId: "14AF2CD35CD3D8060A495CDCAdobeOrg",
-      serverDomain: "pierianemeapartnersa.tt.omtrdc.net",
-      serverState:{}
-    }
-  </script>
-  <script src="at.js"></script>
-  <script>
-  targetPageParams = function() {
-  return {
-    "channel": "web", 
-    "product": "cuisine"
-    }; 
- };
-  </script>
+   
+   
+  
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+
+      window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+      window.utag_cfg_ovrd.noview = true;
+      
+    (function(a,b,c,d){
+      a='https://tags.tiqcdn.com/utag/pierian-sandbox/main/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+      </script>
+    
+    
+   
     <div id="root"></div>
     
   </body>

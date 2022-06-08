@@ -15,23 +15,10 @@ export const Product = () => {
 
     const productData = products.find(product => product.name === location.search.substring(1))
     
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.trackEvent === 'function') {
-        window.adobe.target.trackEvent({
-            "mbox": "collect-params",
-            "params": {
-              "entity.id":  location.search.substring(1)
-             } 
-            });
+    // Tealium call for page-view
+    if(window.utag){ 
+        window.utag.view({"page_name":"product: " + productData.name,"tealium_event": "product_view", "product_id": [productData.id], "product_name": [productData.name], "product_unit_price": [productData.price]});
     }
-    
-    targetView('ProductDetails-' + location.search.substring(1));
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
-    
 
     let imageBoderStyle = {
         border: "5px solid #ddd",
@@ -44,8 +31,12 @@ export const Product = () => {
     const onClick = () => {
         localStorage.setItem("cartProduct", JSON.stringify(productData));
         histroy.push("/basket")
-
-    }
+        // Tealium call for link-click
+        let prod_quantity = 1;
+        if(window.utag){ 
+            window.utag.link({"page_name": "product: " + productData.name,"product_id": [productData.id], "product_name": [productData.name], "product_unit_price": [productData.price], "product_quantity":[prod_quantity], "tealium_event": "cart_add"});
+        }
+    }   
 
 
 

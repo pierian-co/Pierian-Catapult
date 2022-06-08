@@ -17,14 +17,12 @@ export const Basket = () => {
     else {
         cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
     }
-
-    targetView('Basket');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+    // Tealium call for page-view
+    // Added a new comment
+    if(window.utag){ 
+        let prod_quantity = 1;
+        window.utag.view({"page_name":"basket", "tealium_event":"cart_view", "product_id":[cartProduct.id], "product_name":[cartProduct.name], "product_unit_price":[cartProduct.price], "product_quantity":[prod_quantity]});
+    }
 
     const handleChange = (e) => {
         isChecked = e.target.checked;

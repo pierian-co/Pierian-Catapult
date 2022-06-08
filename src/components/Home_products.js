@@ -23,38 +23,12 @@ export const HomeProducts = () => {
         padding: " 0 10px",
         position: "relative",
     }
-    // Call Adobe Target
-    try{
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.getOffer === 'function') {
-            window.adobe.target.getOffer({
-                "mbox": "target-global-mbox",
-                "params":{
-                    "website": "cuisines",
-                    "page_name": "home"
-                },
-                "success": function(offer) {
-                    window.adobe.target.applyOffer( {
-                        "mbox": "target-global-mbox", 
-                        "offer": offer
-                    } ); 
-                },
-                "error": function(status, error) {
-                console.log('Error', status, error); 
-                } 
-            });
-        }
-    }
-    catch (e){
-        console.log(e);
-    }
-    targetView('Home');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
 
+    // Tealium call for page-view
+    if(window.utag){    
+        window.utag.view({"page_name":"home","tealium_event": "page_view"});
+    }
+    
     return (
         <div className="container">
 

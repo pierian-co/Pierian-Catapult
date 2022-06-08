@@ -12,6 +12,10 @@ export const CardDetail = () => {
         color: "white",
     }
 
+     // Tealium call for page-view
+     if(window.utag){ 
+        window.utag.view({"page_name":"checkout: card details","tealium_event": "page_view"});
+    }
 
     return (
         <>

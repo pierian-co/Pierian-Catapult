@@ -12,13 +12,11 @@ export const PersonalDetail = () => {
         color: "white",
     }
 
-    targetView('MyAccount');
-    function targetView(viewName) {
-        // Validate if the Target Libraries are available on your website
-        if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-          window.adobe.target.triggerView(viewName);
-        }
-      }
+     // Tealium call for page-view
+     if(window.utag){ 
+        window.utag.view({"page_name":"checkout: personal details","tealium_event": "page_view"});
+    }
+   
 
     return (
         <>

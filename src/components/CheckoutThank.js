@@ -12,30 +12,21 @@ export const CheckoutThanks = () => {
     cartProduct = JSON.parse(localStorage.getItem("cartProduct"));
   }
   
-  if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-    window.adobe.target.trackEvent({ 
-      "mbox": "orderConfirmPage", 
-      "params":{  
-          "orderId": Math.round(Math.random()*10000),  
-          "orderTotal": cartProduct.price,  
-          "productPurchasedId": cartProduct.name 
-      } 
-  });
-  }
+  
 
-  targetView('OrderComplete');
-  function targetView(viewName) {
-    // Validate if the Target Libraries are available on your website
-    if (window.adobe && window.adobe.target && typeof window.adobe.target.triggerView === 'function') {
-      window.adobe.target.triggerView(viewName);
-    }
-  }
+ 
   let textStyle = {
     fontSize: "18px",
     textTransform: "uppercase",
     textAlign: "center",
     color: "#666"
   }
+
+   // Tealium call for page-view
+   if(window.utag){ 
+    let prod_quantity = 1;
+    window.utag.view({"page_name":"order complete","tealium_event": "purchase", "product_id":[cartProduct.id],"product_name":[cartProduct.name], "product_unit_price": [cartProduct.price], "product_quantity":[prod_quantity],"order_id": Date.now() + '' + Math.random() });
+}
 
   return (
 
